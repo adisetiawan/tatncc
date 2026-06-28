@@ -1,0 +1,73 @@
+---
+import '../styles/global.css';
+import Countdown from '../components/Countdown.astro';
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <title>The A Team National Cheerleading Championship 2026 - Coming Soon</title>
+    <meta name="description" content="The A Team National Cheerleading Championship 2026. Join us at GOR Debes Tabanan, Bali on August 23th, 2026." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-[var(--color-deep-canvas-dark)] text-[var(--color-pure-white)] min-h-screen flex flex-col overflow-x-hidden font-primary">
+    <!-- Hero Background Image -->
+    <div class="fixed inset-0 bg-[url('/banner-tatncc-2026.png')] bg-cover bg-center bg-no-repeat -z-20"></div>
+    
+    <!-- Hero Overlay -->
+    <div class="fixed inset-0 bg-gradient-to-b from-black/30 via-[var(--color-deep-canvas-dark)]/70 to-[var(--color-deep-canvas-dark)] -z-10"></div>
+    
+    <main class="flex flex-col items-center justify-center min-h-screen p-4 sm:p-8 text-center animate-[fadeIn_1.2s_ease-out] w-full max-w-5xl mx-auto">
+      <!-- Main Logo -->
+      <img src="/logo-tatncc.png" alt="TATNCC 2026 Logo" class="w-full max-w-[150px] sm:max-w-[200px] md:max-w-[250px] mb-4 sm:mb-6 drop-shadow-md animate-[float_6s_ease-in-out_infinite]" />
+      
+      <!-- Title -->
+      <h1 class="text-3xl sm:text-5xl md:text-7xl font-extrabold uppercase tracking-tight mb-4 sm:mb-6 bg-gradient-to-b from-[var(--color-pure-white)] via-[var(--color-pure-white)] to-[var(--color-light-blue)] bg-clip-text text-transparent drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)] leading-tight px-2">
+        The A Team National<br/>
+        <span class="text-[var(--color-brand-red)]">Cheerleading Championship 2026</span>
+      </h1>
+      
+      <!-- Location and Date -->
+      <div class="text-sm sm:text-base md:text-lg text-[var(--color-broken-white)] mb-8 sm:mb-10 flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-6 font-medium w-full max-w-2xl px-4">
+        <div class="flex items-center justify-center gap-2 bg-[var(--color-blue-navy)] border border-[var(--color-light-blue)]/30 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full backdrop-blur-md shadow-lg transition-transform duration-300 hover:scale-105 w-full sm:w-auto text-center">
+          <strong class="text-[var(--color-brand-yellow)] font-bold">VENUE:</strong>
+          <span>GOR Debes Tabanan - Bali</span>
+        </div>
+        <div class="flex items-center justify-center gap-2 bg-[var(--color-blue-navy)] border border-[var(--color-light-blue)]/30 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full backdrop-blur-md shadow-lg transition-transform duration-300 hover:scale-105 w-full sm:w-auto text-center">
+          <strong class="text-[var(--color-brand-yellow)] font-bold">DATE:</strong>
+          <span>August 23, 2026</span>
+        </div>
+      </div>
+      
+      <!-- Countdown Timer -->
+      <Countdown />
+      
+      <!-- Supported By -->
+      <div class="mt-6 sm:mt-10 mb-4 w-full px-4">
+        <h2 class="sub-heading-2 uppercase tracking-widest text-[var(--color-broken-white)]/60 text-xs sm:text-sm mb-4 sm:mb-6">Supported By</h2>
+        <div class="flex justify-center items-center flex-wrap gap-4 sm:gap-8">
+          <img src="/logo-ateam-bali.png" alt="A Team Bali Logo" class="h-10 sm:h-14 md:h-16 object-contain transition-transform duration-300 hover:scale-110 drop-shadow" />
+          <img src="/logo-koni.png" alt="KONI Logo" class="h-10 sm:h-14 md:h-16 object-contain transition-transform duration-300 hover:scale-110 drop-shadow" />
+          <img src="/logo-kormi.png" alt="KORMI Logo" class="h-10 sm:h-14 md:h-16 object-contain transition-transform duration-300 hover:scale-110 drop-shadow" />
+          <img src="/logo-tabanan.png" alt="Tabanan Logo" class="h-10 sm:h-14 md:h-16 object-contain transition-transform duration-300 hover:scale-110 drop-shadow" />
+        </div>
+      </div>
+    </main>
+    
+    <style>
+      @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+    </style>
+  </body>
+</html>

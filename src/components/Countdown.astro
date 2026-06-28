@@ -1,0 +1,58 @@
+---
+---
+<div id="countdown" class="flex justify-center gap-3 sm:gap-6 my-8 font-primary w-full px-2">
+  <div class="flex flex-col items-center bg-[var(--color-blue-navy)] border border-[var(--color-light-blue)]/30 rounded-xl p-3 sm:p-4 min-w-[70px] sm:min-w-[90px] backdrop-blur-md shadow-md">
+    <span id="days" class="text-2xl sm:text-[40px] font-extrabold text-[var(--color-brand-yellow)] leading-none mb-1 tabular-nums">00</span>
+    <span class="text-[0.65rem] sm:text-xs uppercase tracking-wider text-[var(--color-broken-white)]/80 font-medium">Days</span>
+  </div>
+  <div class="flex flex-col items-center bg-[var(--color-blue-navy)] border border-[var(--color-light-blue)]/30 rounded-xl p-3 sm:p-4 min-w-[70px] sm:min-w-[90px] backdrop-blur-md shadow-md">
+    <span id="hours" class="text-2xl sm:text-[40px] font-extrabold text-[var(--color-brand-yellow)] leading-none mb-1 tabular-nums">00</span>
+    <span class="text-[0.65rem] sm:text-xs uppercase tracking-wider text-[var(--color-broken-white)]/80 font-medium">Hours</span>
+  </div>
+  <div class="flex flex-col items-center bg-[var(--color-blue-navy)] border border-[var(--color-light-blue)]/30 rounded-xl p-3 sm:p-4 min-w-[70px] sm:min-w-[90px] backdrop-blur-md shadow-md">
+    <span id="minutes" class="text-2xl sm:text-[40px] font-extrabold text-[var(--color-brand-yellow)] leading-none mb-1 tabular-nums">00</span>
+    <span class="text-[0.65rem] sm:text-xs uppercase tracking-wider text-[var(--color-broken-white)]/80 font-medium">Minutes</span>
+  </div>
+  <div class="flex flex-col items-center bg-[var(--color-blue-navy)] border border-[var(--color-light-blue)]/30 rounded-xl p-3 sm:p-4 min-w-[70px] sm:min-w-[90px] backdrop-blur-md shadow-md">
+    <span id="seconds" class="text-2xl sm:text-[40px] font-extrabold text-[var(--color-brand-yellow)] leading-none mb-1 tabular-nums">00</span>
+    <span class="text-[0.65rem] sm:text-xs uppercase tracking-wider text-[var(--color-broken-white)]/80 font-medium">Seconds</span>
+  </div>
+</div>
+
+<script>
+  // Target date: August 23, 2026 00:00:00 (local time)
+  const targetDate = new Date('2026-08-23T00:00:00').getTime();
+
+  function updateCountdown() {
+    const countdownEl = document.getElementById('countdown');
+    if (!countdownEl) return;
+    
+    const now = new Date().getTime();
+    const distance = targetDate - now;
+
+    if (distance < 0) {
+      countdownEl.innerHTML = "<div class='flex flex-col items-center bg-[var(--color-blue-navy)] border border-[var(--color-light-blue)]/30 rounded-xl p-4 sm:p-6 backdrop-blur-md shadow-md text-center max-w-xs sm:max-w-md'><span class='text-xl sm:text-[40px] font-extrabold text-[var(--color-brand-yellow)]'>THE EVENT HAS STARTED</span></div>";
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    const elDays = document.getElementById('days');
+    const elHours = document.getElementById('hours');
+    const elMinutes = document.getElementById('minutes');
+    const elSeconds = document.getElementById('seconds');
+
+    if (elDays) elDays.innerText = days.toString().padStart(2, '0');
+    if (elHours) elHours.innerText = hours.toString().padStart(2, '0');
+    if (elMinutes) elMinutes.innerText = minutes.toString().padStart(2, '0');
+    if (elSeconds) elSeconds.innerText = seconds.toString().padStart(2, '0');
+  }
+
+  // Initial call
+  updateCountdown();
+  // Update every second
+  setInterval(updateCountdown, 1000);
+</script>
